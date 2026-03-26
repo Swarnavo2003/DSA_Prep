@@ -6,6 +6,34 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Leetcode1_TwoSum {
+    /*
+    Problem: Find two indices such that nums[i] + nums[j] = target
+
+    Method: HashMap
+
+    Algorithm:
+    - Create a map to store number → index
+    - Traverse array:
+        → complement = target - nums[i]
+        → if complement exists in map → return indices
+        → else store nums[i] in map
+    - If no pair found → return [-1, -1]
+
+    Key Idea:
+    - Store visited numbers for quick lookup
+    - Check complement before inserting current element
+
+    Complexity:
+    - Time: O(n)
+    - Space: O(n)
+
+    Pattern:
+    - Hashing
+
+    Interview Note:
+    - Avoid brute force (O(n²))
+    - HashMap gives O(1) lookup
+    */
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++) {

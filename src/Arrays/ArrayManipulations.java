@@ -66,6 +66,35 @@ public class ArrayManipulations {
         int[] res = {maxFreqKey, minFreqKey};
         return res;
     }
+    static void rotate(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n;
+        reverseArray(nums, 0, n - 1);
+        reverseArray(nums, 0, k - 1);
+        reverseArray(nums, k, n - 1);
+    }
+    static void reverseArray(int[] nums, int start, int end) {
+        while(start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    static int[] union(int[] nums1, int[] nums2) {
+        Set<Integer> set = new HashSet<>();
+
+        for(int x : nums1) set.add(x);
+        for(int x : nums2) set.add(x);
+
+        int[] result = new int[set.size()];
+        int i = 0;
+        for(int x : set) {
+            result[i++] = x;
+        }
+        return result;
+    }
     public static void main(String[] args) {
 //        int[] nums = {1, 2, 3, 4, 5};
 //        reverseArray(nums);
@@ -75,9 +104,18 @@ public class ArrayManipulations {
 //        rightShiftByOnePos(nums);
 //        System.out.println(Arrays.toString(nums));
 
-        int[] nums = {1, 2, 2, 3, 3, 3, 4, 5, 5};
-        System.out.println(findMod(nums));
-        int[] res = findHighestAndLowestFreq(nums);
+//        int[] nums = {1, 2, 2, 3, 3, 3, 4, 5, 5};
+//        System.out.println(findMod(nums));
+//        int[] res = findHighestAndLowestFreq(nums);
+//        System.out.println(Arrays.toString(res));
+
+//        int[] nums = { 1, 2, 3, 4, 5, 6, 7};
+//        rotate(nums, 3);
+//        System.out.println(Arrays.toString(nums));
+
+        int[] nums1 = {1, 2, 3, 4, 5};
+        int[] nums2 = {2, 5, 6, 7};
+        int[] res = union(nums1, nums2);
         System.out.println(Arrays.toString(res));
     }
 }

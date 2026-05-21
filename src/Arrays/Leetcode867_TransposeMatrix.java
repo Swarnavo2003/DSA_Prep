@@ -1,9 +1,8 @@
 package Arrays;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class TransposeMatrix {
+public class Leetcode867_TransposeMatrix {
     public static int[][] transpose(int[][] matrix) {
         int totalRows = matrix.length, totalCols = matrix[0].length;
         int newTotalRows = totalCols, newTotalCols = totalRows;

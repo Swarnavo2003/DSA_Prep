@@ -9,7 +9,8 @@ public class BinarySearch {
             int mid = (start + end) / 2;
             if(nums[mid] == target) {
                 return mid;
-            } else if(nums[mid] < target) {
+            }
+            else if (target > nums[mid]) {
                 start = mid + 1;
             } else {
                 end = mid - 1;

@@ -4,47 +4,16 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Leetcode167_TwoSum2InputSortedArray {
-    /*
-    Problem: Find two numbers in a sorted array that add up to target (1-based indices)
-
-    Method: Two Pointers
-
-    Algorithm:
-    - Initialize two pointers:
-        → i = 0 (start)
-        → j = n - 1 (end)
-    - While i < j:
-        → calculate sum = numbers[i] + numbers[j]
-        → if sum > target → move j--
-        → if sum < target → move i++
-        → if equal → return [i+1, j+1]
-    - If no pair found → return [-1, -1]
-
-    Key Idea:
-    - Use sorted property to adjust pointers efficiently
-    - Reduce search space from both ends
-
-    Complexity:
-    - Time: O(n)
-    - Space: O(1)
-
-    Pattern:
-    - Two Pointers
-
-    Interview Note:
-    - Better than HashMap when array is sorted
-    - No extra space needed
-    */
     public static int[] twoSum(int[] numbers, int target) {
-        int i = 0, j = numbers.length - 1, n = numbers.length;
-        while (i < j) {
+        int i = 0, j = numbers.length - 1;
+        while(i < j) {
             int sum = numbers[i] + numbers[j];
-            if (sum > target) {
-                j = j - 1;
-            } else if (sum < target) {
-                i = i + 1;
-            } else {
+            if(sum == target) {
                 return new int[]{i + 1, j + 1};
+            } else if (sum > target) {
+                j--;
+            } else {
+                i++;
             }
         }
         return new int[]{-1, -1};
